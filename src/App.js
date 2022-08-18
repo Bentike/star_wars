@@ -1,6 +1,7 @@
 import {useState, useEffect } from 'react';
 import './App.css';
-import Options from './Components/Options';
+import Dropdown from './Components/Dropdown';
+import StarWarLogo from './Components/StarWarLogo';
 
 function App() {
   const [movies, setMovies] = useState([]);
@@ -18,15 +19,14 @@ function App() {
   {if(isLoading) return <h1>Loading...</h1>}
 
   return (
-     <div className='title__wrap'>
-         <h1>Star Wars</h1>
-         <label className='star__label' for="star-wars">Choose a Movie:</label> <br/><br/>
-        <select name="star-wars" id="star-wars">
-            <option value="">select movie</option>
-            {movies.map(mov => {
-            return  <Options key={mov.title} title={mov.title}/>
-            })}
-        </select>
+     <div className='app__container'>
+       <div className='title__wrap'>
+            <h1>Star Wars</h1>
+            <Dropdown movie={movies}/>           
+        </div>
+        <div className='data__tab'>
+           <StarWarLogo/>
+        </div>
     </div>
   )
 }

@@ -1,3 +1,7 @@
+.app__container{
+ display: flex;
+}
+
 .title__wrap{
   width: 30%;
   height: 100vh;
@@ -9,14 +13,7 @@
     padding: 30px;
 }
 
-.star__label{
-    font-size: 20px;
-    margin-left: 50px;
-}
-
-.title__wrap select{
-    margin-left: 50px;
-    padding: 10px;
-    width: 80%;
-    font-size: 18px;
+.data__tab{
+    width: 70%;
+    text-align: center;
 }
