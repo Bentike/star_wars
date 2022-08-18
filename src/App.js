@@ -2,10 +2,19 @@ import {useState, useEffect } from 'react';
 import './App.css';
 import Dropdown from './Components/Dropdown';
 import StarWarLogo from './Components/StarWarLogo';
+import MovieData from './Components/MovieData';
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedMovieData, setSelectedMovieData] = useState([]);
+
+  const getSelectedValue = (e) => {
+     setSelectedValue(e.target.value);
+     let movie = movies.find(mov => mov.title === e.target.value);
+     setSelectedMovieData(movie);
+  } 
 
   useEffect(() => {
     fetch("https://swapi.dev/api/films/")
@@ -22,10 +31,15 @@ function App() {
      <div className='app__container'>
        <div className='title__wrap'>
             <h1>Star Wars</h1>
-            <Dropdown movie={movies}/>           
+            <Dropdown 
+              movie={movies} 
+              getValue={getSelectedValue} 
+              selectedMovie={selectedValue}
+            />           
         </div>
         <div className='data__tab'>
            <StarWarLogo/>
+           <MovieData movieCrawl={selectedMovieData?.opening_crawl}/>
         </div>
     </div>
   )
