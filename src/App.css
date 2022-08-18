@@ -1,0 +1,22 @@
+.title__wrap{
+  width: 30%;
+  height: 100vh;
+  border-right: 1px solid gray;
+}
+
+.title__wrap h1{
+    text-align: center;
+    padding: 30px;
+}
+
+.star__label{
+    font-size: 20px;
+    margin-left: 50px;
+}
+
+.title__wrap select{
+    margin-left: 50px;
+    padding: 10px;
+    width: 80%;
+    font-size: 18px;
+}
